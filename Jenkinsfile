@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -20,4 +21,11 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            echo "Pipeline Finished!"
+        }
+    }
 }
+
