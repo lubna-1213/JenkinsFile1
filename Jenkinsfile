@@ -6,7 +6,7 @@ pipeline {
     }
 
     tools {
-        maven 'Maven3' // Change 'Maven3' to your Maven tool name in Jenkins dashboard
+        maven 'Maven_3' // <-- replace with the exact name!
     }
 
     parameters {
@@ -18,7 +18,6 @@ pipeline {
             steps {
                 echo "Building version ${env.VERSION}"
                 sh "mvn --version"
-                // Maven build command:
                 sh "mvn clean install"
             }
         }
@@ -28,14 +27,12 @@ pipeline {
             }
             steps {
                 echo "Tests Running for version ${env.VERSION}..."
-                // Maven test command:
                 sh "mvn test"
             }
         }
         stage('Deploy') {
             steps {
                 echo "Deploying version ${env.VERSION}"
-                // Your deploy commands go here
             }
         }
     }
