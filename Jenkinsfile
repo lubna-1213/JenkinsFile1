@@ -6,7 +6,7 @@ pipeline {
     }
 
     tools {
-        maven 'Maven_3' // <-- replace with the exact name!
+        maven 'Maven3' // <-- Change this to your exact configured tool name!
     }
 
     parameters {
