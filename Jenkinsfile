@@ -27,5 +27,14 @@ pipeline {
             echo "Pipeline Finished!"
         }
     }
+    stage('Test') {
+    when {
+        expression { return true }  // add your condition
+    }
+    steps {
+        echo 'Conditional Testing..'
+    }
+}
+
 }
 
