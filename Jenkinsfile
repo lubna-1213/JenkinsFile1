@@ -1,23 +1,27 @@
 pipeline {
     agent any
 
+    environment {
+        VERSION = "1.0.5"
+    }
+
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo "Building version ${env.VERSION}"
             }
         }
         stage('Test') {
             when {
-                expression { return true } // Replace with your condition
+                expression { env.VERSION == "1.0.5" }
             }
             steps {
-                echo 'Conditional Testing..'
+                echo "Testing only for version ${env.VERSION}"
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo "Deploying version ${env.VERSION}"
             }
         }
     }
