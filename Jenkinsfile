@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -8,13 +7,14 @@ pipeline {
                 echo 'Building..'
             }
         }
-
         stage('Test') {
+            when {
+                expression { return true } // Replace with your condition
+            }
             steps {
-                echo 'Testing..'
+                echo 'Conditional Testing..'
             }
         }
-
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
@@ -27,14 +27,4 @@ pipeline {
             echo "Pipeline Finished!"
         }
     }
-    stage('Test') {
-    when {
-        expression { return true }  // add your condition
-    }
-    steps {
-        echo 'Conditional Testing..'
-    }
 }
-
-}
-
